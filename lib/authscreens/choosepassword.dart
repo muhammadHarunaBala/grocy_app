@@ -1,36 +1,33 @@
-import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../bottombar/bottombar.dart';
 import '../customescreens/custtombutton.dart';
+import '../screens/home.dart';
 import '../utils/colornotifir.dart';
 import '../utils/mediaqury.dart';
 import 'alreayhasaccount.dart';
-import 'choosepassword.dart';
 
-class InfoUpdate extends StatefulWidget {
-  const InfoUpdate({super.key});
+class ChoosePassword extends StatefulWidget {
+  const ChoosePassword({super.key});
 
   @override
-  State<InfoUpdate> createState() => _InfoUpdateState();
+  State<ChoosePassword> createState() => _ChoosePasswordState();
 }
 
-class _InfoUpdateState extends State<InfoUpdate> {
+class _ChoosePasswordState extends State<ChoosePassword> {
   late ColorNotifier notifier;
   @override
   Widget build(BuildContext context) {
-
     notifier = Provider.of<ColorNotifier>(context, listen: true);
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
         title: Text(
-          "Your Information",
+          "Choose a Password",
           style: TextStyle(
 
             color: notifier.getblack,
@@ -53,26 +50,17 @@ class _InfoUpdateState extends State<InfoUpdate> {
 
       body: Column(
         children: [
-          //SizedBox(height: 20,),
-          Container(
-            margin: const EdgeInsets.all(20),
-              child: const Text("It looks like you don’t have account in this Number")),
           const SizedBox(height: 20,),
-
+          Container(
+              margin: const EdgeInsets.all(20),
+              child: const Text("For the security & safety please choose a password")),
+          const SizedBox(height: 20,),
           Center(
-            child: Container(
-              height: height/4,
-              width: width/1.8,
-              //color: Colors.red,
-              decoration: BoxDecoration(
-                color: Colors.grey.shade200,
-                borderRadius: BorderRadius.circular(100)
-              ),
-              child:const Icon(Icons.camera_enhance_rounded,size: 100,),
-            ),
+            child: Image.asset('assets/s4.png'),
           ),
 
-          SizedBox(height: 50,),
+
+          const SizedBox(height: 30,),
 
           Container(
             decoration: BoxDecoration(
@@ -93,15 +81,15 @@ class _InfoUpdateState extends State<InfoUpdate> {
                     style:   TextStyle(color: notifier.getblack,),
                     decoration: InputDecoration(
 
-                      // suffixIcon: IconButton(
-                      //   icon: const Icon(Icons.remove_red_eye), onPressed: () {
-                      //
-                      // },
-                      //   //onPressed: () => _searchController.clear(),
-                      // ),
+                      suffixIcon: IconButton(
+                        icon: const Icon(Icons.remove_red_eye), onPressed: () {
+
+                      },
+                        //onPressed: () => _searchController.clear(),
+                      ),
                       // Add a search icon or button to the search bar
                       prefixIcon: IconButton(
-                        icon: const Icon(Icons.person),
+                        icon: const Icon(Icons.lock),
                         onPressed: () {
                           // Perform the search here
                         },
@@ -114,7 +102,7 @@ class _InfoUpdateState extends State<InfoUpdate> {
                         borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      hintText: "Full Name",
+                      hintText: "Password",
                       hintStyle: TextStyle(
                         color: Colors.black12,
                         fontSize: height / 40,
@@ -125,20 +113,72 @@ class _InfoUpdateState extends State<InfoUpdate> {
               ],
             ),
           ),
-          SizedBox(height: height/3,),
+          const SizedBox(height: 20,),
+
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.white70,
+            ),
+            margin: const EdgeInsets.only(left: 20,right: 20),
+
+            child: Row(
+              children: [
+                Container(
+                  color: Colors.transparent,
+                  height: height / 15,
+                  width: width / 1.2,
+                  child: TextField(
+                    controller: number,
+                    keyboardType: TextInputType.number,
+                    style:   TextStyle(color: notifier.getblack,),
+                    decoration: InputDecoration(
+
+                      suffixIcon: IconButton(
+                        icon: const Icon(Icons.remove_red_eye), onPressed: () {
+
+                      },
+                        //onPressed: () => _searchController.clear(),
+                      ),
+                      // Add a search icon or button to the search bar
+                      prefixIcon: IconButton(
+                        icon: const Icon(Icons.lock),
+                        onPressed: () {
+                          // Perform the search here
+                        },
+                      ),
+
+                      // filled: true,
+                      contentPadding: EdgeInsets.only(left: height / 80),
+                      // fillColor: notifier.getwihitecolor,
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      hintText: "Confirm Password",
+                      hintStyle: TextStyle(
+                        color: Colors.black12,
+                        fontSize: height / 40,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 20,),
 
           GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>ChoosePassword()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
             },
-            child:  Custombutton.button(notifier.getprimeryColor, "Next", width/1.3),
+            child:  Custombutton.button(notifier.getprimeryColor, "Finish, Good to go", width/1.3),
           ),
 
-
-
-          
         ],
       ),
+
 
 
 

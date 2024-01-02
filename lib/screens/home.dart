@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:grocy_app/authscreens/otp.dart';
+import 'package:grocy_app/utils/mediaqury.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -38,14 +40,17 @@ class _HomeState extends State<Home> {
 
              ],
            ),
-           const Expanded(child: SizedBox(height: 10,)),
+            SizedBox(height: 10,),
            Container(
+             height: 50,
+            //color: notifier.getvisacolor,
           // Add padding around the search bar
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           // Use a Material design search bar
           child: TextField(
             controller: _searchController,
             decoration: InputDecoration(
+              //focusColor: notifier.getprimeryColor,
               hintText: 'Search...',
               // Add a clear button to the search bar
               suffixIcon: IconButton(
@@ -68,15 +73,16 @@ class _HomeState extends State<Home> {
               Column(
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
                         decoration: BoxDecoration(
                             color: Colors.white,
                           borderRadius: BorderRadius.circular(10)
                         ),
-                        margin: const EdgeInsets.all(20),
-                        height: 150,width: 150,
+                        //margin: const EdgeInsets.all(20),
+                        height: 150,
+                        width: width/2.5,
 
                         child: const Column(
                         ),
@@ -86,8 +92,9 @@ class _HomeState extends State<Home> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10)
                         ),
-                        margin: const EdgeInsets.all(20),
-                        height: 150,width: 150,
+                        //margin: const EdgeInsets.all(20),
+                        height: 150,
+                        width: width/2.5,
 
                         child: const Column(
                         ),
@@ -103,7 +110,8 @@ class _HomeState extends State<Home> {
                             borderRadius: BorderRadius.circular(10)
                         ),
                         margin: const EdgeInsets.all(20),
-                        height: 150,width: 150,
+                        height: 150,
+                        width: width/3,
 
                         child: const Column(
                         ),

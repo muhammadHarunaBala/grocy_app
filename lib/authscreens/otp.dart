@@ -1,10 +1,12 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pin_put/pin_put.dart';
 import 'package:provider/provider.dart';
 import '../../utils/colornotifir.dart';
 import '../../utils/mediaqury.dart';
 import '../customescreens/custtombutton.dart';
+import 'infoupdate.dart';
 
 class OTP extends StatefulWidget {
   const OTP({super.key});
@@ -73,7 +75,7 @@ class _OTPState extends State<OTP> {
 
             GestureDetector(
               onTap: (){
-                //Navigator.push(context, MaterialPageRoute(builder: (context)=>successful()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>InfoUpdate()));
               },
               child:  Custombutton.button(notifier.getprimeryColor, "VERIFY", width/1.3),
             ),
@@ -113,7 +115,7 @@ class _OTPState extends State<OTP> {
               FloatingActionButton(
                 backgroundColor: notifier.getprimeryColor,
                 onPressed: () {
-                  //Navigator.push(context, CupertinoPageRoute(builder: (context)=>SignIn()));
+                 // Navigator.push(context, CupertinoPageRoute(builder: (context)=>InfoUpdate()));
                 },
                 child: Icon(Icons.navigate_before),
               ),
