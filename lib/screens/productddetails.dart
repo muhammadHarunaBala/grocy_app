@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../authscreens/otp.dart';
+import '../customescreens/custtombutton.dart';
 import '../utils/mediaqury.dart';
+import 'cart.dart';
 
 class ProductDetails extends StatefulWidget {
   const ProductDetails({super.key});
@@ -38,30 +40,75 @@ class _ProductDetailsState extends State<ProductDetails> {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          SizedBox(height: 20,),
-          Center(
-            child: Container(
-              height: height/3,
-              width: width/1.3,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey.shade200
-
-
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Center(
-                  child: Image.asset('assets/s4.png'),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 20,),
+            Center(
+              child: Container(
+                height: height/2.5,
+                width: width/1.2,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey.shade200
+        
+        
                 ),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Center(
+                    child: Image.asset('assets/s4.png'),
+                  ),
+                ),
+        
               ),
+        
+            ),
+            SizedBox(height: 20,),
+            Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(left: 20),
+                    child: Text('Arla DANO Full Cream Milk Powder Instant')),
+              ],
+            ),
+            SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(left: 20),
+                    child: Text("1 Kg")),
+                Container(
+                  margin: EdgeInsets.only(right: 20),
+                    child: Text("500")),
+              ],
+            ),
+            const Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(Icons.read_more_outlined),
+                ),
+                SizedBox(width: 10,),
+                
+                Text('Dairy Products')
 
+              ],
+            ),
+            const Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text('Et quidem faciunt, ut summum bonum sit extremum etrationibus conquisitis de voluptate. Sed ut summum bonum sit i'),
             ),
 
-          )
-        ],
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart()));
+              },
+              child:  Custombutton.button(Colors.lightGreen, "Add to Bag", width/1.3),
+            ),
+          ],
+        ),
       ),
 
     );

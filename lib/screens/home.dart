@@ -105,6 +105,8 @@ import 'package:grocy_app/authscreens/otp.dart';
 import 'package:grocy_app/screens/productddetails.dart';
 import 'package:grocy_app/utils/mediaqury.dart';
 
+import 'cart.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -123,6 +125,7 @@ class _HomeState extends State<Home> {
     return GestureDetector(
       onTap: () {
         setState(() {
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductDetails()));
 
 
           //changing the current expandableState
@@ -189,7 +192,7 @@ class _HomeState extends State<Home> {
 
 
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductDetails()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart()));
                 },
                 icon: Icon( // <-- Icon
                   Icons.add_shopping_cart_sharp,
