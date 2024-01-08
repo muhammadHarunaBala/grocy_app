@@ -125,7 +125,7 @@ class _HomeState extends State<Home> {
     return GestureDetector(
       onTap: () {
         setState(() {
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductDetails()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>const ProductDetails()));
 
 
           //changing the current expandableState
